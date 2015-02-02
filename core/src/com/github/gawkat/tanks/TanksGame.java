@@ -2,6 +2,7 @@ package com.github.gawkat.tanks;
 
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture.TextureFilter;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
@@ -13,6 +14,8 @@ public class TanksGame extends ApplicationAdapter {
 	SpriteBatch batch;
 
 	BitmapFont font12;
+
+	Music backgroundMusic;
 
 	@Override
 	public void create() {
@@ -28,6 +31,12 @@ public class TanksGame extends ApplicationAdapter {
 		font12.getRegion().getTexture()
 				.setFilter(TextureFilter.Linear, TextureFilter.Linear);
 		generator.dispose(); // don't forget to dispose to avoid memory leaks!
+
+		// Background music
+		backgroundMusic = Gdx.audio
+				.newMusic(Gdx.files.internal("deadmau5.mp3"));
+		backgroundMusic.setLooping(true);
+		backgroundMusic.play();
 	}
 
 	@Override
