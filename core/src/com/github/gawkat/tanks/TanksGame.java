@@ -4,34 +4,26 @@ import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.scenes.scene2d.ui.Label;
-import com.badlogic.gdx.scenes.scene2d.ui.Label.LabelStyle;
-import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
-import com.badlogic.gdx.scenes.scene2d.ui.TextButton.TextButtonStyle;
-import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
-import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.github.gawkat.tanks.ui.LobbyMenu;
+import com.github.gawkat.tanks.ui.MainMenu;
+import com.github.gawkat.tanks.ui.OptionsMenu;
 import com.github.gawkat.tanks.util.FontLoader;
+import com.github.gawkat.tanks.util.Styles;
 
 public class TanksGame extends ApplicationAdapter {
 
 	SpriteBatch batch;
 
-	Stage mainMenuStage;
-
-	Label versionLabel;
-
 	FontLoader fontLoader;
-
-	public static BitmapFont bodyFont, titleFont, headingFont;
 
 	public static String fontName = "visitor.ttf";
 
 	Music backgroundMusic;
 
 	private static GameState currentGameState;
+
+	MainMenu mainMenu = new MainMenu();
 
 	@Override
 	public void create() {
@@ -40,18 +32,15 @@ public class TanksGame extends ApplicationAdapter {
 		// Set game state
 		setCurrentGameState(GameState.MAIN_MENU);
 
-		// load fonts
+		// Load fonts
 		fontLoader = new FontLoader();
 		fontLoader.loadBodyFont();
 		fontLoader.loadTitleFont();
-		fontLoader.loadHeadingFont();
+		fontLoader.loadHeading1Font();
+		fontLoader.loadHeading2Font();
 
-		// Create version label
-		LabelStyle versionStyle = new LabelStyle();
-		versionStyle.font = bodyFont;
-		versionLabel = new Label("Version 0.1a", versionStyle);
-		versionLabel.setX(5);
-		versionLabel.setY(Gdx.graphics.getHeight() - 20);
+		// Load styles
+		Styles.createStyles();
 
 		// Background music
 		backgroundMusic = Gdx.audio.newMusic(Gdx.files
@@ -60,7 +49,7 @@ public class TanksGame extends ApplicationAdapter {
 		backgroundMusic.setVolume(0.1f);
 		backgroundMusic.play();
 
-		createMainMenu();
+		mainMenu.createMainMenu();
 	}
 
 	@Override
@@ -71,16 +60,13 @@ public class TanksGame extends ApplicationAdapter {
 
 		switch (getCurrentGameState()) {
 		case MAIN_MENU:
-			// TODO
-			renderMainMenu();
+			mainMenu.renderMainMenu(batch);
 			break;
 		case OPTIONS_MENU:
-			// TODO
-			renderOptionsMenu();
+			OptionsMenu.renderOptionsMenu(batch);
 			break;
 		case LOBBY_MENU:
-			// TODO
-			renderLobbyMenu();
+			LobbyMenu.renderLobbyMenu(batch);
 			break;
 		case INGAME:
 			// TODO
@@ -89,18 +75,6 @@ public class TanksGame extends ApplicationAdapter {
 		}
 
 		batch.end();
-	}
-
-	private void renderMainMenu() {
-		mainMenuStage.draw();
-	}
-
-	private void renderOptionsMenu() {
-
-	}
-
-	private void renderLobbyMenu() {
-
 	}
 
 	private void renderGame() {
@@ -112,27 +86,7 @@ public class TanksGame extends ApplicationAdapter {
 
 	}
 
-	private void createMainMenu() {
-		mainMenuStage = new Stage();
-		Gdx.input.setInputProcessor(mainMenuStage);
-
-		TextButtonStyle buttonStyle = new TextButtonStyle();
-		buttonStyle.font = headingFont;
-
-		TextButton playButton = new TextButton("Play", buttonStyle);
-		playButton.addListener(new ChangeListener() {
-			@Override
-			public void changed(ChangeEvent event, Actor actor) {
-				System.out.println("Play Pressed");
-				setCurrentGameState(GameState.LOBBY_MENU);
-			}
-		});
-
-		mainMenuStage.addActor(playButton);
-		mainMenuStage.addActor(versionLabel);
-	}
-
-	private static void setCurrentGameState(GameState newGameState) {
+	public static void setCurrentGameState(GameState newGameState) {
 		currentGameState = newGameState;
 	}
 

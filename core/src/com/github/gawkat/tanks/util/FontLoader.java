@@ -17,8 +17,8 @@ public class FontLoader {
 				Gdx.files.internal(TanksGame.fontName));
 		FreeTypeFontParameter parameter = new FreeTypeFontParameter();
 		parameter.size = 20;
-		TanksGame.bodyFont = generator.generateFont(parameter);
-		TanksGame.bodyFont.getRegion().getTexture()
+		Fonts.bodyFont = generator.generateFont(parameter);
+		Fonts.bodyFont.getRegion().getTexture()
 				.setFilter(TextureFilter.Linear, TextureFilter.Linear);
 		generator.dispose();
 	}
@@ -28,19 +28,30 @@ public class FontLoader {
 				Gdx.files.internal(TanksGame.fontName));
 		FreeTypeFontParameter parameter = new FreeTypeFontParameter();
 		parameter.size = 54;
-		TanksGame.titleFont = generator.generateFont(parameter);
-		TanksGame.titleFont.getRegion().getTexture()
+		Fonts.titleFont = generator.generateFont(parameter);
+		Fonts.titleFont.getRegion().getTexture()
 				.setFilter(TextureFilter.Linear, TextureFilter.Linear);
 		generator.dispose();
 	}
 
-	public void loadHeadingFont() {
+	public void loadHeading1Font() {
 		FreeTypeFontGenerator generator = new FreeTypeFontGenerator(
 				Gdx.files.internal(TanksGame.fontName));
 		FreeTypeFontParameter parameter = new FreeTypeFontParameter();
 		parameter.size = 42;
-		TanksGame.headingFont = generator.generateFont(parameter);
-		TanksGame.headingFont.getRegion().getTexture()
+		Fonts.heading1Font = generator.generateFont(parameter);
+		Fonts.heading1Font.getRegion().getTexture()
+				.setFilter(TextureFilter.Linear, TextureFilter.Linear);
+		generator.dispose();
+	}
+	
+	public void loadHeading2Font() {
+		FreeTypeFontGenerator generator = new FreeTypeFontGenerator(
+				Gdx.files.internal(TanksGame.fontName));
+		FreeTypeFontParameter parameter = new FreeTypeFontParameter();
+		parameter.size = 32;
+		Fonts.heading2Font = generator.generateFont(parameter);
+		Fonts.heading2Font.getRegion().getTexture()
 				.setFilter(TextureFilter.Linear, TextureFilter.Linear);
 		generator.dispose();
 	}
