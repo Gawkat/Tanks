@@ -9,18 +9,18 @@ public class Controls {
 	// TODO
 
 	// Player 1
-	private String p1f = "W", p1b = "S", p1l = "A", p1r = "D";
+	private String p1f = "W", p1b = "S", p1l = "A", p1r = "D", p1s = "Q";
 
 	// Player 2
-	private String p2f = "I", p2b = "K", p2l = "J", p2r = "L";
+	private String p2f = "I", p2b = "K", p2l = "J", p2r = "L", p2s = "U";
 
 	// Player 3
-	private String p3f = "Up Arrow", p3b = "Down Arrow", p3l = "Left Arrow",
-			p3r = "Right Arrow";
+	private String p3f = "Up", p3b = "Down", p3l = "Left",
+			p3r = "Right", p3s = "Right Shift";
 
 	// Player 4
-	private String p4f = "Num key 8", p4b = "Num key 5", p4l = "Num key 4",
-			p4r = "Num key 6";
+	private String p4f = "Keypad 8", p4b = "Keypad 5", p4l = "Keypad 4",
+			p4r = "Keypad 6", p4s = "Keypad Plus";
 
 	public String getP1F() {
 		return p1f;
@@ -36,6 +36,10 @@ public class Controls {
 
 	public String getP1R() {
 		return p1r;
+	}
+
+	public String getP1S() {
+		return p1s;
 	}
 
 	public String getP2F() {
@@ -54,6 +58,10 @@ public class Controls {
 		return p2r;
 	}
 
+	public String getP2S() {
+		return p2s;
+	}
+
 	public String getP3F() {
 		return p3f;
 	}
@@ -70,6 +78,10 @@ public class Controls {
 		return p3r;
 	}
 
+	public String getP3S() {
+		return p3s;
+	}
+
 	public String getP4F() {
 		return p4f;
 	}
@@ -84,6 +96,10 @@ public class Controls {
 
 	public String getP4R() {
 		return p4r;
+	}
+
+	public String getP4S() {
+		return p4s;
 	}
 
 }

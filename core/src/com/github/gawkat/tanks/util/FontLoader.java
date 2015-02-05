@@ -12,6 +12,13 @@ import com.github.gawkat.tanks.TanksGame;
  */
 public class FontLoader {
 
+	public void loadFonts() {
+		loadBodyFont();
+		loadTitleFont();
+		loadHeading1Font();
+		loadHeading2Font();
+	}
+
 	public void loadBodyFont() {
 		FreeTypeFontGenerator generator = new FreeTypeFontGenerator(
 				Gdx.files.internal(TanksGame.fontName));
@@ -44,7 +51,7 @@ public class FontLoader {
 				.setFilter(TextureFilter.Linear, TextureFilter.Linear);
 		generator.dispose();
 	}
-	
+
 	public void loadHeading2Font() {
 		FreeTypeFontGenerator generator = new FreeTypeFontGenerator(
 				Gdx.files.internal(TanksGame.fontName));

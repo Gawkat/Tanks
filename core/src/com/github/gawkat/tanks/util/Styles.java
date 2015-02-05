@@ -1,6 +1,7 @@
 package com.github.gawkat.tanks.util;
 
 import com.badlogic.gdx.scenes.scene2d.ui.Label.LabelStyle;
+import com.badlogic.gdx.scenes.scene2d.ui.Slider.SliderStyle;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton.TextButtonStyle;
 
 /**
@@ -14,7 +15,10 @@ public class Styles {
 	public static TextButtonStyle titleButtonStyle, heading1ButtonStyle,
 			heading2ButtonStyle, bodyButtonStyle;
 
+	public static SliderStyle sliderStyle;
+
 	public static void createStyles() {
+		// Label styles
 		titleStyle = new LabelStyle();
 		titleStyle.font = Fonts.titleFont;
 
@@ -27,6 +31,7 @@ public class Styles {
 		bodyStyle = new LabelStyle();
 		bodyStyle.font = Fonts.bodyFont;
 
+		// Button styles
 		titleButtonStyle = new TextButtonStyle();
 		titleButtonStyle.font = Fonts.titleFont;
 
@@ -38,6 +43,9 @@ public class Styles {
 
 		bodyButtonStyle = new TextButtonStyle();
 		bodyButtonStyle.font = Fonts.bodyFont;
+
+		// Slider style
+		sliderStyle = new SliderStyle();
 	}
 
 }

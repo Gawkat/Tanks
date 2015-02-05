@@ -34,10 +34,7 @@ public class TanksGame extends ApplicationAdapter {
 
 		// Load fonts
 		fontLoader = new FontLoader();
-		fontLoader.loadBodyFont();
-		fontLoader.loadTitleFont();
-		fontLoader.loadHeading1Font();
-		fontLoader.loadHeading2Font();
+		fontLoader.loadFonts();
 
 		// Load styles
 		Styles.createStyles();
