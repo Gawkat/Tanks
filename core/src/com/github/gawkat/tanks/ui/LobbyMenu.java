@@ -42,6 +42,20 @@ public class LobbyMenu {
 			}
 		});
 		lobbyMenuStage.addActor(backButton);
+
+		TextButton playButton = new TextButton("Play",
+				Styles.heading1ButtonStyle);
+		playButton.setX(Gdx.graphics.getWidth() - playButton.getWidth());
+		playButton.setY(0);
+		playButton.addListener(new ChangeListener() {
+			@Override
+			public void changed(ChangeEvent event, Actor actor) {
+				TanksGame.setCurrentGameState(GameState.INGAME);
+				Gdx.input.setInputProcessor(TanksGame.input);
+				TanksGame.loadGame("dm_testmap", 1.0f);
+			}
+		});
+		lobbyMenuStage.addActor(playButton);
 	}
 
 	public static void renderLobbyMenu(Batch batch) {

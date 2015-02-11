@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="50" height="10" tilewidth="32" tileheight="32" nextobjectid="1">
+ <tileset firstgid="1" name="stuff" tilewidth="32" tileheight="32">
+  <tile id="0">
+   <image width="32" height="32" source="../textures/ground.bmp"/>
+  </tile>
+  <tile id="1">
+   <image width="32" height="32" source="../textures/stoneBlock.bmp"/>
+  </tile>
+ </tileset>
+ <layer name="Tile Layer 1" width="50" height="10">
+  <data encoding="base64" compression="zlib">
+   eJylVUEOwCAIU/7/6O1C0nWF4taEZFGEFpju9UbctskSvL7FWfQNWlO50jjWV2Te/M640RhrQt5OAwJj/QHyULxUH9R+iPWpjr9amBf3gf06HqjDzaCKUeWZ9JV1VGcdFzVzaz3PVLqwZt2ey+10TGqK89TVtjqDa8zRgWeZ54pju/vrVIfy5V5MoPqHmpSvm42uts63mnEHzsM1VXes48X/eOXD/Nnv5N6a5uvekBObvKM4Z1NcMG8Bag==
+  </data>
+ </layer>
+</map>

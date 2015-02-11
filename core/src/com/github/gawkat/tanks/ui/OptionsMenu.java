@@ -42,7 +42,6 @@ public class OptionsMenu {
 		controlButton.addListener(new ChangeListener() {
 			@Override
 			public void changed(ChangeEvent event, Actor actor) {
-				System.out.println("pressed control options");
 				if (ControlOptions.controlOptionsStage == null) {
 					ControlOptions.createControlOptions();
 				}
@@ -59,7 +58,6 @@ public class OptionsMenu {
 		audioButton.addListener(new ChangeListener() {
 			@Override
 			public void changed(ChangeEvent event, Actor actor) {
-				System.out.println("pressed audio options");
 				if (AudioOptions.audioOptionsStage == null) {
 					AudioOptions.createAudioOptions();
 				}

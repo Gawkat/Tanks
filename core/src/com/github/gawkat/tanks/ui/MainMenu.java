@@ -31,20 +31,6 @@ public class MainMenu {
 		versionLabel.setY(Gdx.graphics.getHeight() - 20);
 		mainMenuStage.addActor(versionLabel);
 
-		// Test
-		Label titleLabel = new Label("This is a title", Styles.titleStyle);
-		titleLabel.setX(10);
-		titleLabel.setY(10);
-		mainMenuStage.addActor(titleLabel);
-		Label headingLabel = new Label("This is a heading", Styles.heading1Style);
-		headingLabel.setX(10);
-		headingLabel.setY(10 + titleLabel.getHeight());
-		mainMenuStage.addActor(headingLabel);
-		Label bodyLabel = new Label("This is a body", Styles.bodyStyle);
-		bodyLabel.setX(10);
-		bodyLabel.setY(10 + titleLabel.getHeight() + headingLabel.getHeight());
-		mainMenuStage.addActor(bodyLabel);
-
 		// Buttons
 		TextButton playButton = new TextButton("Play",
 				Styles.heading1ButtonStyle);
@@ -53,7 +39,6 @@ public class MainMenu {
 		playButton.addListener(new ChangeListener() {
 			@Override
 			public void changed(ChangeEvent event, Actor actor) {
-				System.out.println("Play Pressed");
 				if (LobbyMenu.lobbyMenuStage == null) {
 					LobbyMenu.createLobbyMenu();
 				}

@@ -1,10 +1,17 @@
 package com.github.gawkat.tanks;
 
+import java.util.ArrayList;
+
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.audio.Music;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.maps.tiled.TiledMap;
+import com.badlogic.gdx.maps.tiled.TmxMapLoader;
+import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.github.gawkat.tanks.ui.LobbyMenu;
 import com.github.gawkat.tanks.ui.MainMenu;
 import com.github.gawkat.tanks.ui.OptionsMenu;
@@ -24,6 +31,14 @@ public class TanksGame extends ApplicationAdapter {
 	private static GameState currentGameState;
 
 	MainMenu mainMenu = new MainMenu();
+
+	static TiledMap map;
+	static OrthogonalTiledMapRenderer renderer;
+	static OrthographicCamera camera;
+
+	static ArrayList<Tank> tanks = new ArrayList<Tank>();
+
+	public static Input input = new Input();
 
 	@Override
 	public void create() {
@@ -66,7 +81,7 @@ public class TanksGame extends ApplicationAdapter {
 			LobbyMenu.renderLobbyMenu(batch);
 			break;
 		case INGAME:
-			// TODO
+			updateGame();
 			renderGame();
 			break;
 		}
@@ -74,8 +89,40 @@ public class TanksGame extends ApplicationAdapter {
 		batch.end();
 	}
 
-	private void renderGame() {
+	private void updateGame() {
+		// TODO update
+		for (Tank t : tanks) {
+			t.getInput();
+		}
+	}
 
+	private void renderGame() {
+		camera.update();
+		renderer.setView(camera);
+		// renderer.render();
+
+		// TODO render
+		for (Tank t : tanks) {
+			t.render(batch);
+		}
+	}
+
+	public static void loadGame(String mapName, float scale) {
+		map = new TmxMapLoader().load("maps/" + mapName + ".tmx");
+		loadTanks();
+		renderer = new OrthogonalTiledMapRenderer(map, 1);
+		camera = new OrthographicCamera();
+		camera.setToOrtho(false, scale * 800, scale * 600);
+		camera.update();
+	}
+
+	private static void loadTanks() {
+		// Tank testTank = new Tank(Color.BLUE, 1, 50, 50);
+		// tanks.add(testTank);
+		// Test
+		for (int i = 0; i < 4; i++) {
+			tanks.add(new Tank(Color.BLUE, i, 400, 300));
+		}
 	}
 
 	public static GameState getCurrentGameState() {

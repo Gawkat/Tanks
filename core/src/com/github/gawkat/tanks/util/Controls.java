@@ -1,5 +1,7 @@
 package com.github.gawkat.tanks.util;
 
+import com.badlogic.gdx.Input.Keys;
+
 /**
  * @author Gawkat
  *
@@ -9,96 +11,98 @@ public class Controls {
 	// TODO
 
 	// Player 1
-	private String p1f = "W", p1b = "S", p1l = "A", p1r = "D", p1s = "Q";
+	private int p1f = Keys.W, p1b = Keys.S, p1l = Keys.A, p1r = Keys.D,
+			p1s = Keys.Q;
 
 	// Player 2
-	private String p2f = "I", p2b = "K", p2l = "J", p2r = "L", p2s = "U";
+	private int p2f = Keys.I, p2b = Keys.K, p2l = Keys.J, p2r = Keys.L,
+			p2s = Keys.U;
 
 	// Player 3
-	private String p3f = "Up", p3b = "Down", p3l = "Left",
-			p3r = "Right", p3s = "Right Shift";
+	private int p3f = Keys.UP, p3b = Keys.DOWN, p3l = Keys.LEFT,
+			p3r = Keys.RIGHT, p3s = Keys.SHIFT_RIGHT;
 
 	// Player 4
-	private String p4f = "Keypad 8", p4b = "Keypad 5", p4l = "Keypad 4",
-			p4r = "Keypad 6", p4s = "Keypad Plus";
+	private int p4f = Keys.NUM_5, p4b = Keys.NUM_2, p4l = Keys.NUM_1,
+			p4r = Keys.NUM_3, p4s = Keys.NUM_0; // TODO WTF?!
 
-	public String getP1F() {
+	public int getP1F() {
 		return p1f;
 	}
 
-	public String getP1B() {
+	public int getP1B() {
 		return p1b;
 	}
 
-	public String getP1L() {
+	public int getP1L() {
 		return p1l;
 	}
 
-	public String getP1R() {
+	public int getP1R() {
 		return p1r;
 	}
 
-	public String getP1S() {
+	public int getP1S() {
 		return p1s;
 	}
 
-	public String getP2F() {
+	public int getP2F() {
 		return p2f;
 	}
 
-	public String getP2B() {
+	public int getP2B() {
 		return p2b;
 	}
 
-	public String getP2L() {
+	public int getP2L() {
 		return p2l;
 	}
 
-	public String getP2R() {
+	public int getP2R() {
 		return p2r;
 	}
 
-	public String getP2S() {
+	public int getP2S() {
 		return p2s;
 	}
 
-	public String getP3F() {
+	public int getP3F() {
 		return p3f;
 	}
 
-	public String getP3B() {
+	public int getP3B() {
 		return p3b;
 	}
 
-	public String getP3L() {
+	public int getP3L() {
 		return p3l;
 	}
 
-	public String getP3R() {
+	public int getP3R() {
 		return p3r;
 	}
 
-	public String getP3S() {
+	public int getP3S() {
 		return p3s;
 	}
 
-	public String getP4F() {
+	public int getP4F() {
 		return p4f;
 	}
 
-	public String getP4B() {
+	public int getP4B() {
 		return p4b;
 	}
 
-	public String getP4L() {
+	public int getP4L() {
 		return p4l;
 	}
 
-	public String getP4R() {
+	public int getP4R() {
 		return p4r;
 	}
 
-	public String getP4S() {
+	public int getP4S() {
 		return p4s;
 	}
 
